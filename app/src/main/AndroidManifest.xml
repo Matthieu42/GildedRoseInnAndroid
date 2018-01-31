@@ -7,6 +7,19 @@
                  android:supportsRtl="true"
                  android:theme="@style/AppTheme">
 
-    </application>
 
+
+    <activity android:name=".HomeActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+
+    <activity android:name=".InventoryActivity" >
+    </activity>
+    <activity android:name=".ShopActivity" >
+    </activity>
+    </application>
 </manifest>

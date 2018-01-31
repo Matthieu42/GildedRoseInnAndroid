@@ -1,4 +1,4 @@
-package fr.iut_valence.tinnesm.gildedroseinn package.name.here;
+package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Activity;
 import android.os.Bundle;
