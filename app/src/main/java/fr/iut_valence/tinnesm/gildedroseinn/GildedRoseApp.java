@@ -1,11 +1,8 @@
 package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Application;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by tinnesm on 31/01/18.
@@ -19,6 +16,8 @@ public class GildedRoseApp extends Application {
             new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
             new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
             new Item("Conjured Mana Cake", 3, 6)));
+
+    public ArrayList<Item> inventory = new ArrayList<>();
 
     public GildedRoseApp getApplication(){
         return this;

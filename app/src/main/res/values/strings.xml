@@ -5,4 +5,5 @@
     <string name="inventory_name">Inventory</string>
     <string name="quality">Quality</string>
     <string name="sellIn">Sell In</string>
+    <string name="added_item_inventory">Item added to inventory</string>
 </resources>

@@ -16,11 +16,13 @@ import java.util.ArrayList;
 public class GildedRoseAdapter extends BaseAdapter {
 
     private ArrayList<Item> items;
+    private View.OnClickListener onClickListener;
     private Context context;
 
-    public GildedRoseAdapter(Context context, ArrayList<Item> items) {
+    public GildedRoseAdapter(Context context, ArrayList<Item> items, View.OnClickListener onClickListener) {
         this.context = context;
         this.items = items;
+        this.onClickListener = onClickListener;
     }
 
     @Override
@@ -49,6 +51,8 @@ public class GildedRoseAdapter extends BaseAdapter {
         ((TextView)view.findViewById(R.id.itemName)).setText(item.getName());
         ((TextView)view.findViewById(R.id.itemQuality)).setText(res.getString(R.string.quality) + " : " +String.valueOf(item.getQuality()));
         ((TextView)view.findViewById(R.id.itemSellIn)).setText(res.getString(R.string.sellIn) + " : " +String.valueOf(item.getSellIn()));
+        view.setOnClickListener(onClickListener);
+        view.setTag(item);
         return view;
     }
 }
