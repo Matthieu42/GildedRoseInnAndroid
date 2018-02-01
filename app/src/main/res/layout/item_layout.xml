@@ -10,8 +10,8 @@
             android:textStyle="normal|bold" android:textAlignment="center"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/itemSellIn"/>
+            android:layout_height="wrap_content" android:id="@+id/itemSellIn" android:textAlignment="center"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/itemQuality"/>
+            android:layout_height="wrap_content" android:id="@+id/itemQuality" android:textAlignment="center"/>
 </LinearLayout>

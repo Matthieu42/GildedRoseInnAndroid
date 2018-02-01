@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class ShopActivity extends Activity
 {
 	private ListView itemList;
-	private Item[] items;
+	private ArrayList<Item> items;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{

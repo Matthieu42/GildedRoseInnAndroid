@@ -3,4 +3,6 @@
     <string name="home_name">Gilded Rose Inn</string>
     <string name="shop_name">Shop</string>
     <string name="inventory_name">Inventory</string>
+    <string name="quality">Quality</string>
+    <string name="sellIn">Sell In</string>
 </resources>
