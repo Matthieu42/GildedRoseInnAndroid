@@ -1,32 +1,31 @@
 package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class GildedRose
 {
-	private List<Item> items;
+	private ArrayList<AbstractItem> items;
+	private int day;
 
-	public GildedRose()
+	public GildedRose(ArrayList<AbstractItem> inventory)
 	{
-		this.items = new ArrayList<Item>();
-		
-		//this.items.add(new Item("+5 Dexterity Vest", 10, 20));
-		//this.items.add(new Item("Aged Brie", 2, 0));
-		//this.items.add(new Item("Elixir of the Mongoose", 5, 7));
-		//this.items.add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
-		//this.items.add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
-		//this.items.add(new Item("Conjured Mana Cake", 3, 6));
+		this.items = inventory;
+		day = 0;
 	}
 	
-	public void addItem(Item item)
+	public void addItem(AbstractItem item)
 	{
 		this.items.add(item);
 	}
 	
 	public void updateItems()
 	{
+		day++;
 		for (Item item: this.items)
 			item.update();
+	}
+
+	public int getDay() {
+		return day;
 	}
 }

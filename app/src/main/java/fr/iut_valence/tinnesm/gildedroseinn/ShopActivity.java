@@ -6,13 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
 
 import java.util.ArrayList;
 
 public class ShopActivity extends Activity
 {
 	private ListView itemList;
-	private ArrayList<Item> items;
+	private ArrayList<AbstractItem> items;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -25,7 +26,7 @@ public class ShopActivity extends Activity
 			public void onClick(View view) {
 				Toast.makeText(ShopActivity.this,getString(R.string.added_item_inventory),
 						Toast.LENGTH_LONG).show();
-				app.inventory.add((Item) view.getTag());
+				app.inventory.add((AbstractItem) view.getTag());
 			}
 		};
 		itemList.setAdapter(new GildedRoseAdapter(this.getBaseContext(), app.items, onItemClick,ListType.SHOP));

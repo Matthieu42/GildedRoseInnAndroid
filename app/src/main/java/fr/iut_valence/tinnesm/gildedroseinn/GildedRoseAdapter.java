@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.Item;
 
 import java.util.ArrayList;
 
@@ -15,12 +17,12 @@ import java.util.ArrayList;
  */
 public class GildedRoseAdapter extends BaseAdapter {
 
-    private ArrayList<Item> items;
+    private ArrayList<AbstractItem> items;
     private View.OnClickListener onClickListener;
     private Context context;
     private ListType type;
 
-    public GildedRoseAdapter(Context context, ArrayList<Item> items, View.OnClickListener onClickListener, ListType type) {
+    public GildedRoseAdapter(Context context, ArrayList<AbstractItem> items, View.OnClickListener onClickListener, ListType type) {
         this.context = context;
         this.items = items;
         this.onClickListener = onClickListener;
@@ -38,10 +40,6 @@ public class GildedRoseAdapter extends BaseAdapter {
         return items.get(i);
     }
 
-    public void removeItem(Item i){
-        items.remove(i);
-        this.notifyDataSetChanged();
-    }
 
     @Override
     public long getItemId(int i) {

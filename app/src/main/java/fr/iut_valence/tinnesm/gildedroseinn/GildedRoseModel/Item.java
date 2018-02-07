@@ -2,7 +2,6 @@ package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 public interface Item
 {
-
 	int MIN_QUALITY = 0;
 	int MAX_QUALITY = 50;
 
@@ -22,4 +21,5 @@ public interface Item
 
 	boolean hasExpired();
 
+	int getPrice();
 }

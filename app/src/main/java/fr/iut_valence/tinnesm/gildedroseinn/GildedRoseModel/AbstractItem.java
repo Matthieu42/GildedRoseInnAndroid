@@ -81,6 +81,7 @@ public abstract class AbstractItem implements Item
 
 	public void updateSellIn()
 	{
+
 	}
 
 	public final void decrementSellIn()
@@ -120,5 +121,11 @@ public abstract class AbstractItem implements Item
 	{
 		return getSellIn() < 0;
 	}
+
+	@Override
+	public final int getPrice(){
+		return this.price;
+	}
+
 
 }
