@@ -1,10 +1,10 @@
-package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
+package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 public class AgedBrieItem extends AbstractItem
 {	
 	public AgedBrieItem(int sellIn, int quality)
 	{
-		super ("Aged Brie", sellIn, quality);
+		super ("Aged Brie", sellIn, quality,25);
 	}
 
 	public void updateQuality()

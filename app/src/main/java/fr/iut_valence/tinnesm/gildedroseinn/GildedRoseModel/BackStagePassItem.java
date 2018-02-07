@@ -1,4 +1,4 @@
-package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
+package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 public class BackStagePassItem extends AbstractItem
 {
@@ -7,7 +7,7 @@ public class BackStagePassItem extends AbstractItem
 	
 	public BackStagePassItem(int sellIn, int quality)
 	{
-		super ("Backstage passes to a TAFKAL80ETC concert", sellIn, quality);
+		super ("Backstage passes to a TAFKAL80ETC concert", sellIn, quality,10);
 	}
 
 	public void updateQuality()

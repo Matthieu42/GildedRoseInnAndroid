@@ -1,4 +1,4 @@
-package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
+package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 import java.util.ArrayList;
 import java.util.List;

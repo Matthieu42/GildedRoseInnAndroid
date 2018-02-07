@@ -1,6 +1,8 @@
 package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Application;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.CommonItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.Item;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -8,7 +10,7 @@ import java.util.Arrays;
  * Created by tinnesm on 31/01/18.
  */
 public class GildedRoseApp extends Application {
-    public ArrayList<Item> items = new ArrayList<>(Arrays.asList(new Item("Aged Brie", 2, 0, 42), //
+    public ArrayList<Item> items = new ArrayList<>(Arrays.asList(new CommonItem("Aged Brie", 2, 0, 42), //
             new Item("Elixir of the Mongoose", 5, 7, 10), //
             new Item("Sulfuras, Hand of Ragnaros", 0, 80, 11), //
             new Item("Sulfuras, Hand of Ragnaros", -1, 80, 12),

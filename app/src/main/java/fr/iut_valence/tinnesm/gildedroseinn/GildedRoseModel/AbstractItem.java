@@ -1,13 +1,15 @@
-package fr.iutvalence.info.dut.m3105.gildedroseinn.refactoring;
+package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 public abstract class AbstractItem implements Item
 {
 	private String name;
 	private int sellIn;
 	private int quality;
+	private int price;
 
-	public AbstractItem(String name, int sellIn, int quality)
+	public AbstractItem(String name, int sellIn, int quality, int price)
 	{
+		this.price = price;
 		this.setName(name);
 		this.setSellIn(sellIn);
 		this.setQuality(quality);
@@ -79,10 +81,6 @@ public abstract class AbstractItem implements Item
 
 	public void updateSellIn()
 	{
-		if (!"Sulfuras, Hand of Ragnaros".equals(getName()))
-		{
-			decrementSellIn();
-		}
 	}
 
 	public final void decrementSellIn()

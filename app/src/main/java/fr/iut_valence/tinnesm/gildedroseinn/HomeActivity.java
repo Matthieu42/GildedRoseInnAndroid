@@ -35,7 +35,7 @@ public class HomeActivity extends Activity
 
 	private void nextDay()
 	{
-		// TODO Auto-generated method stub
+		
 		
 	}
 
