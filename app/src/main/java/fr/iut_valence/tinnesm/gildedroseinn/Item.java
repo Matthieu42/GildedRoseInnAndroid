@@ -8,11 +8,14 @@ public class Item
 
 	private int quality;
 
-	public Item(String name, int sellIn, int quality)
+	private int price;
+
+	public Item(String name, int sellIn, int quality, int price)
 	{
 		this.name = name;
 		this.sellIn = sellIn;
-		this.setQuality(quality);
+		this.price = price;
+		this.quality = quality;
 	}
 
 	public String getName()
@@ -38,5 +41,9 @@ public class Item
 	public void setQuality(int quality)
 	{
 		this.quality = quality;
+	}
+
+	public int getPrice() {
+		return price;
 	}
 }

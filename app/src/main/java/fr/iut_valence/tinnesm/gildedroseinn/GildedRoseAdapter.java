@@ -18,11 +18,13 @@ public class GildedRoseAdapter extends BaseAdapter {
     private ArrayList<Item> items;
     private View.OnClickListener onClickListener;
     private Context context;
+    private ListType type;
 
-    public GildedRoseAdapter(Context context, ArrayList<Item> items, View.OnClickListener onClickListener) {
+    public GildedRoseAdapter(Context context, ArrayList<Item> items, View.OnClickListener onClickListener, ListType type) {
         this.context = context;
         this.items = items;
         this.onClickListener = onClickListener;
+        this.type = type;
     }
 
     @Override
@@ -36,6 +38,11 @@ public class GildedRoseAdapter extends BaseAdapter {
         return items.get(i);
     }
 
+    public void removeItem(Item i){
+        items.remove(i);
+        this.notifyDataSetChanged();
+    }
+
     @Override
     public long getItemId(int i) {
         return i;
@@ -47,10 +54,21 @@ public class GildedRoseAdapter extends BaseAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.item_layout,viewGroup, false);
         }
         Item item = (Item) this.getItem(i);
-        Resources res = context.getResources();
+
         ((TextView)view.findViewById(R.id.itemName)).setText(item.getName());
-        ((TextView)view.findViewById(R.id.itemQuality)).setText(res.getString(R.string.quality) + " : " +String.valueOf(item.getQuality()));
-        ((TextView)view.findViewById(R.id.itemSellIn)).setText(res.getString(R.string.sellIn) + " : " +String.valueOf(item.getSellIn()));
+        Resources res = context.getResources();
+        switch (type){
+
+            case INVENTORY:
+                ((TextView)view.findViewById(R.id.label1)).setText(res.getString(R.string.quality) + " : " +String.valueOf(item.getQuality()));
+                ((TextView)view.findViewById(R.id.label2)).setText(res.getString(R.string.sellIn) + " : " +String.valueOf(item.getSellIn()));
+                break;
+            case SHOP:
+                ((TextView)view.findViewById(R.id.label1)).setText(res.getString(R.string.price) + " : " +String.valueOf(item.getPrice()));
+                break;
+        }
+
+
         view.setOnClickListener(onClickListener);
         view.setTag(item);
         return view;

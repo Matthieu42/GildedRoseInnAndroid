@@ -1,6 +1,7 @@
 package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -17,15 +18,16 @@ public class ShopActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.shop_layout);
-		items = new GildedRoseApp().getApplication().items;
+		final GildedRoseApp app = (GildedRoseApp) getApplication();
 		itemList = (ListView) findViewById(R.id.itemList);
 		View.OnClickListener onItemClick = new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				Toast.makeText(ShopActivity.this,getString(R.string.added_item_inventory),
 						Toast.LENGTH_LONG).show();
+				app.inventory.add((Item) view.getTag());
 			}
 		};
-		itemList.setAdapter(new GildedRoseAdapter(this.getBaseContext(), items, onItemClick));
+		itemList.setAdapter(new GildedRoseAdapter(this.getBaseContext(), app.items, onItemClick,ListType.SHOP));
 	}
 }
