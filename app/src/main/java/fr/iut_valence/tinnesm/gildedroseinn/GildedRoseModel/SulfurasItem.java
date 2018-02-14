@@ -9,7 +9,6 @@ public class SulfurasItem extends AbstractItem
 
 	@Override
 	protected void updatePrice() {
-
 	}
 
 	public void updateQuality()

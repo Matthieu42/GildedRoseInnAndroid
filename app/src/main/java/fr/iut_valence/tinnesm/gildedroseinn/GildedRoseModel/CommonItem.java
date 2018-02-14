@@ -9,7 +9,8 @@ public class CommonItem extends AbstractItem
 
 	@Override
 	protected void updatePrice() {
-		price--;
+		if(isPriceInBound())
+			price--;
 	}
 
 	public void updateQuality()

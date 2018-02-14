@@ -8,20 +8,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class HomeActivity extends Activity
 {
 	private TextView dayText;
 	private TextView moneytext;
-	private final static int SHOP_CODE = 1;
-
+	private GildedRoseApp app;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
+		app = (GildedRoseApp) getApplication();
 		dayText = (TextView) findViewById(R.id.day_text);
 		moneytext = (TextView) findViewById(R.id.walletTextView);
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				nextDay();
+			}
+		}, 0,5000);
 	}
 
 	public void homeActivityClickListener(View view)
@@ -34,9 +43,6 @@ public class HomeActivity extends Activity
 			case R.id.inventory_button : 
 				startInventoryActivity();
 				break;
-			case R.id.next_button :
-				nextDay();
-				break;
 			default :	
 		}
 	}
@@ -46,7 +52,7 @@ public class HomeActivity extends Activity
 		GildedRoseApp app = (GildedRoseApp) getApplication();
 		app.gildedRoseInv.updateItems();
 		app.gildedRoseShop.updateItems();
-		dayText.setText(String.valueOf(app.gildedRoseInv.getDay()));
+		updateDayText();
 	}
 
 	private void startInventoryActivity()
@@ -67,8 +73,10 @@ public class HomeActivity extends Activity
 	}
 
 	private void updateWalletText(){
-		GildedRoseApp app = (GildedRoseApp) getApplication();
-		moneytext.setText(getString(R.string.money) + " " +String.valueOf(app.money));
+		moneytext.setText(String.format("%s : %d", getString(R.string.money),app.money));
+	}
+	private void updateDayText(){
+		dayText.setText(String.format("%s : %d", getString(R.string.day),app.gildedRoseInv.getDay()));
 	}
 
 }

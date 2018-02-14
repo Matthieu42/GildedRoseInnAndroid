@@ -9,7 +9,9 @@ public class AgedBrieItem extends AbstractItem
 
 	@Override
 	protected void updatePrice() {
-		this.price++;
+		if(isPriceInBound()){
+			this.price++;
+		}
 	}
 
 	public void updateQuality()

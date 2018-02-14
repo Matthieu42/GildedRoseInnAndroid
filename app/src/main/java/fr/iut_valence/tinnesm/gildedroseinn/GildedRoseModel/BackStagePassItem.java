@@ -12,12 +12,21 @@ public class BackStagePassItem extends AbstractItem
 
 	@Override
 	protected void updatePrice() {
-		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_FIRST_THRESHOLD)
-			price++;
-		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_SECOND_THRESHOLD)
-			price++;
-		if (hasExpired())
-			price--;
+		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_FIRST_THRESHOLD){
+			if(isPriceInBound())
+				price++;
+		}
+
+		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_SECOND_THRESHOLD){
+			if(isPriceInBound())
+				price++;
+		}
+
+		if (hasExpired()){
+			if(isPriceInBound())
+				price--;
+		}
+
 	}
 
 	public void updateQuality()
@@ -28,6 +37,6 @@ public class BackStagePassItem extends AbstractItem
 		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_SECOND_THRESHOLD)
 			increaseQualityWithinBounds();
 		if (hasExpired())
-			setQuality(Item.MIN_QUALITY);
+			setQuality(MIN_QUALITY);
 	}
 }

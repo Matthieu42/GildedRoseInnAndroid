@@ -2,6 +2,10 @@ package fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel;
 
 public abstract class AbstractItem implements Item
 {
+	protected final static int MIN_QUALITY = 0;
+	private final static int MAX_QUALITY = 50;
+	protected final static int MIN_PRICE = 1;
+	protected final static int MAX_PRICE = 100;
 	private String name;
 	private int sellIn;
 	private int quality;
@@ -96,13 +100,13 @@ public abstract class AbstractItem implements Item
 	
 	public final void increaseQualityWithinBounds()
 	{
-		if (getQuality() < Item.MAX_QUALITY)
+		if (getQuality() < MAX_QUALITY)
 			incrementQuality();
 	}
 
 	public final void decreaseQualityWithinBounds()
 	{
-		if (getQuality() > Item.MIN_QUALITY)		
+		if (getQuality() > MIN_QUALITY)
 				decrementQuality();
 	}
 
@@ -128,6 +132,10 @@ public abstract class AbstractItem implements Item
 	@Override
 	public final int getPrice(){
 		return this.price;
+	}
+
+	protected boolean isPriceInBound(){
+		return this.price > MIN_PRICE && this.price < MAX_PRICE;
 	}
 
 
