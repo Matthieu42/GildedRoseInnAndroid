@@ -1,8 +1,6 @@
 package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Activity;
-
-import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,11 +9,14 @@ import android.widget.TextView;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.GildedRose;
+
 public class HomeActivity extends Activity
 {
 	private TextView dayText;
 	private TextView moneytext;
 	private GildedRoseApp app;
+	private DataSaver dataSaver;
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -24,6 +25,15 @@ public class HomeActivity extends Activity
 		app = (GildedRoseApp) getApplication();
 		dayText = (TextView) findViewById(R.id.day_text);
 		moneytext = (TextView) findViewById(R.id.walletTextView);
+		dataSaver = new DataSaver(app);
+		app.money = dataSaver.getMoney();
+		if(app.money == 0){
+			app.money = 100;
+		}
+		app.gildedRoseInv = dataSaver.getInventory();
+		if(app.gildedRoseInv == null){
+			app.gildedRoseInv = new GildedRose();
+		}
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask() {
 			@Override
@@ -42,6 +52,10 @@ public class HomeActivity extends Activity
 				break;
 			case R.id.inventory_button : 
 				startInventoryActivity();
+				break;
+			case R.id.addMoneyButton:
+				app.money+=100;
+				updateWalletText();
 				break;
 			default :	
 		}
@@ -71,6 +85,13 @@ public class HomeActivity extends Activity
 		super.onResume();
 		updateWalletText();
 	}
+	@Override
+	protected void onStop() {
+		super.onStop();
+		this.dataSaver.saveInventory(app.gildedRoseInv);
+		this.dataSaver.saveMoney(app.money);
+	}
+
 
 	private void updateWalletText(){
 		moneytext.setText(String.format("%s : %d", getString(R.string.money),app.money));

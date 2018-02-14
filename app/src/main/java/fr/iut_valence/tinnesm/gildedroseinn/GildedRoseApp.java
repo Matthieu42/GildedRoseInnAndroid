@@ -1,10 +1,16 @@
 package fr.iut_valence.tinnesm.gildedroseinn;
 
 import android.app.Application;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AgedBrieItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.BackStagePassItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.CommonItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.GildedRose;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.SulfurasItem;
 
 /**
  * Created by tinnesm on 31/01/18.
@@ -19,11 +25,11 @@ public class GildedRoseApp extends Application {
             new BackStagePassItem( 5, 49, 15),
             new CommonItem(3, 6, 16)));
 
-    public GildedRose gildedRoseInv = new GildedRose();
+    public GildedRose gildedRoseInv;
 
     public GildedRose gildedRoseShop = new GildedRose(items);
 
-    public int money = 100;
+    public int money;
 
     public GildedRoseApp getApplication(){
         return this;

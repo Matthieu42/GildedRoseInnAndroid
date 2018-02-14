@@ -11,6 +11,9 @@ public abstract class AbstractItem implements Item
 	private int quality;
 	protected int price;
 
+	public AbstractItem(){
+
+	}
 	public AbstractItem(String name, int sellIn, int quality, int price)
 	{
 		this.price = price;

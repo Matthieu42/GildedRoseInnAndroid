@@ -62,7 +62,9 @@ public class GildedRoseAdapter extends BaseAdapter {
                 ((TextView)view.findViewById(R.id.label2)).setText(res.getString(R.string.sellIn) + " : " +String.valueOf(item.getSellIn()));
                 break;
             case SHOP:
-                ((TextView)view.findViewById(R.id.label1)).setText(res.getString(R.string.price) + " : " +String.valueOf(item.getPrice()));
+                ((TextView)view.findViewById(R.id.label1)).setText(res.getString(R.string.quality) + " : " +String.valueOf(item.getQuality()));
+                ((TextView)view.findViewById(R.id.label2)).setText(res.getString(R.string.sellIn) + " : " +String.valueOf(item.getSellIn()));
+                ((TextView)view.findViewById(R.id.label3)).setText(res.getString(R.string.price) + " : " +String.valueOf(item.getPrice()));
                 break;
         }
 
