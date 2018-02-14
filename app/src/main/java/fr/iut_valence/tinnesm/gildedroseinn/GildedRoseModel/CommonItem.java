@@ -7,6 +7,11 @@ public class CommonItem extends AbstractItem
 		super ("+5 Dexterity Vest", sellIn, quality,price);
 	}
 
+	@Override
+	protected void updatePrice() {
+		price--;
+	}
+
 	public void updateQuality()
 	{		
 		decreaseQualityWithinBounds();		

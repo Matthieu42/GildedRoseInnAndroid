@@ -7,6 +7,11 @@ public class SulfurasItem extends AbstractItem
 		super ("Sulfuras, Hand of Ragnaros", sellIn, quality,price);
 	}
 
+	@Override
+	protected void updatePrice() {
+
+	}
+
 	public void updateQuality()
 	{
 		decrementSellIn();

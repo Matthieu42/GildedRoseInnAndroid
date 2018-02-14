@@ -7,6 +7,11 @@ public class AgedBrieItem extends AbstractItem
 		super ("Aged Brie", sellIn, quality,price);
 	}
 
+	@Override
+	protected void updatePrice() {
+		this.price++;
+	}
+
 	public void updateQuality()
 	{		
 		increaseQualityWithinBounds();

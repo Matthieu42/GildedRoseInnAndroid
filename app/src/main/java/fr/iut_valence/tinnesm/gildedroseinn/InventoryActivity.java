@@ -15,10 +15,11 @@ public class InventoryActivity extends Activity
 		setContentView(R.layout.inventory_layout);
 		final GildedRoseApp app = (GildedRoseApp) getApplication();
 		final ListView itemList = (ListView) findViewById(R.id.itemList);
-		final GildedRoseAdapter gildedRoseAdapter = new GildedRoseAdapter(this.getBaseContext(), app.inventory, new View.OnClickListener() {
+		final GildedRoseAdapter gildedRoseAdapter = new GildedRoseAdapter(this.getBaseContext(),
+				app.gildedRoseInv.getItems(), new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				app.inventory.remove(view.getTag());
+				app.gildedRoseInv.getItems().remove(view.getTag());
 				itemList.invalidateViews();
 			}
 		}, ListType.INVENTORY);

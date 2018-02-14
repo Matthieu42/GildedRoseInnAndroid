@@ -5,7 +5,7 @@ public abstract class AbstractItem implements Item
 	private String name;
 	private int sellIn;
 	private int quality;
-	private int price;
+	protected int price;
 
 	public AbstractItem(String name, int sellIn, int quality, int price)
 	{
@@ -77,7 +77,10 @@ public abstract class AbstractItem implements Item
 	{
 		updateSellIn();		
 		updateQuality();
+		updatePrice();
 	}
+
+	protected abstract void updatePrice();
 
 	public void updateSellIn()
 	{

@@ -11,13 +11,17 @@ import android.widget.TextView;
 public class HomeActivity extends Activity
 {
 	private TextView dayText;
+	private TextView moneytext;
+	private final static int SHOP_CODE = 1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_layout);
 		dayText = (TextView) findViewById(R.id.day_text);
+		moneytext = (TextView) findViewById(R.id.walletTextView);
 	}
 
 	public void homeActivityClickListener(View view)
@@ -40,17 +44,31 @@ public class HomeActivity extends Activity
 	private void nextDay()
 	{
 		GildedRoseApp app = (GildedRoseApp) getApplication();
-		app.gildedRose.updateItems();
-		dayText.setText(String.valueOf(app.gildedRose.getDay()));
+		app.gildedRoseInv.updateItems();
+		app.gildedRoseShop.updateItems();
+		dayText.setText(String.valueOf(app.gildedRoseInv.getDay()));
 	}
 
 	private void startInventoryActivity()
 	{
-		this.startActivity( new Intent(this, InventoryActivity.class));	
+		this.startActivity( new Intent(this, InventoryActivity.class));
 	}
 
 	private void startShopActivity()
 	{
-		this.startActivity( new Intent(this, ShopActivity.class));
+		Intent intent = new Intent(this, ShopActivity.class);
+		this.startActivity(intent);
 	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		updateWalletText();
+	}
+
+	private void updateWalletText(){
+		GildedRoseApp app = (GildedRoseApp) getApplication();
+		moneytext.setText(getString(R.string.money) + " " +String.valueOf(app.money));
+	}
+
 }

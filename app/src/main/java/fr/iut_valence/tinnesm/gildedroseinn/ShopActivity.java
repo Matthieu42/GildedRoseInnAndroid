@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.GildedRose;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.Item;
 
 import java.util.ArrayList;
 
@@ -24,11 +26,19 @@ public class ShopActivity extends Activity
 		View.OnClickListener onItemClick = new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Toast.makeText(ShopActivity.this,getString(R.string.added_item_inventory),
-						Toast.LENGTH_LONG).show();
-				app.inventory.add((AbstractItem) view.getTag());
+				AbstractItem item =(AbstractItem) view.getTag();
+				if(item.getPrice() > app.money){
+					Toast.makeText(ShopActivity.this,getString(R.string.notEnoughMoney),
+							Toast.LENGTH_LONG).show();
+				}
+				else{
+					app.money-=item.getPrice();
+					app.gildedRoseInv.getItems().add(item);
+					Toast.makeText(ShopActivity.this,getString(R.string.added_item_inventory),
+							Toast.LENGTH_LONG).show();
+				}
 			}
 		};
-		itemList.setAdapter(new GildedRoseAdapter(this.getBaseContext(), app.items, onItemClick,ListType.SHOP));
+		itemList.setAdapter(new GildedRoseAdapter(this.getBaseContext(),app.gildedRoseShop.getItems() , onItemClick,ListType.SHOP));
 	}
 }

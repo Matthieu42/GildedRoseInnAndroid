@@ -7,4 +7,6 @@
     <string name="sellIn">Sell In</string>
     <string name="added_item_inventory">Item added to inventory</string>
     <string name="price">Price</string>
+    <string name="money">Money :</string>
+    <string name="notEnoughMoney">Not enough money</string>
 </resources>

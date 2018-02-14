@@ -10,6 +10,16 @@ public class BackStagePassItem extends AbstractItem
 		super ("Backstage passes to a TAFKAL80ETC concert", sellIn, quality,price);
 	}
 
+	@Override
+	protected void updatePrice() {
+		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_FIRST_THRESHOLD)
+			price++;
+		if (getSellIn() < BackStagePassItem.BACK_STAGE_PASS_SECOND_THRESHOLD)
+			price++;
+		if (hasExpired())
+			price--;
+	}
+
 	public void updateQuality()
 	{		
 		increaseQualityWithinBounds();

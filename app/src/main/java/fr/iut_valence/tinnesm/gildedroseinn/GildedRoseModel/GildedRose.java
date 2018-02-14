@@ -12,7 +12,12 @@ public class GildedRose
 		this.items = inventory;
 		day = 0;
 	}
-	
+
+	public GildedRose() {
+		this.items = new ArrayList<>();
+		day = 0;
+	}
+
 	public void addItem(AbstractItem item)
 	{
 		this.items.add(item);
@@ -27,5 +32,9 @@ public class GildedRose
 
 	public int getDay() {
 		return day;
+	}
+
+	public ArrayList<AbstractItem> getItems() {
+		return items;
 	}
 }
