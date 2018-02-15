@@ -39,7 +39,12 @@ public class HomeActivity extends Activity
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				runOnUiThread(() -> nextDay());
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						nextDay();
+					}
+				});
 
 			}
 		}, 0,5000);

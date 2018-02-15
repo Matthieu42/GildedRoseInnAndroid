@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class GildedRose
 {
-	private ArrayList<AbstractItem> items;
+	private ArrayList<Item> items;
 	private int day;
 
-	public GildedRose(ArrayList<AbstractItem> inventory)
+	public GildedRose(ArrayList<Item> inventory)
 	{
 		this.items = inventory;
 		day = 0;
@@ -34,7 +34,7 @@ public class GildedRose
 		return day;
 	}
 
-	public ArrayList<AbstractItem> getItems() {
+	public ArrayList<Item> getItems() {
 		return items;
 	}
 }

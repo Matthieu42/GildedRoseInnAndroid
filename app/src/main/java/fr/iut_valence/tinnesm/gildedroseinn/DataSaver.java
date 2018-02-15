@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
 import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.GildedRose;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.Item;
 
 
 /**
@@ -28,7 +29,7 @@ public class DataSaver {
         preferences = app.getSharedPreferences(APP_DATA,0);
         prefsEditor = preferences.edit();
         gson = new GsonBuilder()
-                .registerTypeAdapter(AbstractItem.class, new InterfaceAdapter<AbstractItem>())
+                .registerTypeAdapter(Item.class, new InterfaceAdapter<Item>())
                 .create();
     }
 

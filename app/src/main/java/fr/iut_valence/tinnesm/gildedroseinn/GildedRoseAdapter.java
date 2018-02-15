@@ -17,12 +17,12 @@ import java.util.ArrayList;
  */
 public class GildedRoseAdapter extends BaseAdapter {
 
-    private ArrayList<AbstractItem> items;
+    private ArrayList<Item> items;
     private View.OnClickListener onClickListener;
     private Context context;
     private ListType type;
 
-    public GildedRoseAdapter(Context context, ArrayList<AbstractItem> items, View.OnClickListener onClickListener, ListType type) {
+    public GildedRoseAdapter(Context context, ArrayList<Item> items, View.OnClickListener onClickListener, ListType type) {
         this.context = context;
         this.items = items;
         this.onClickListener = onClickListener;

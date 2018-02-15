@@ -5,18 +5,13 @@ import android.app.Application;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AbstractItem;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.AgedBrieItem;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.BackStagePassItem;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.CommonItem;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.GildedRose;
-import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.SulfurasItem;
+import fr.iut_valence.tinnesm.gildedroseinn.GildedRoseModel.*;
 
 /**
  * Created by tinnesm on 31/01/18.
  */
 public class GildedRoseApp extends Application {
-    private ArrayList<AbstractItem> items = new ArrayList<>(Arrays.asList(new AgedBrieItem( 2, 0,20),
+    private ArrayList<Item> items = new ArrayList<Item>(Arrays.asList(new AgedBrieItem( 2, 0,20),
             new CommonItem( 5, 7,24),
             new SulfurasItem(0, 80,30),
             new SulfurasItem(-1, 80,41),
