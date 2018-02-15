@@ -17,6 +17,7 @@ public class HomeActivity extends Activity
 	private TextView moneytext;
 	private GildedRoseApp app;
 	private DataSaver dataSaver;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -38,7 +39,8 @@ public class HomeActivity extends Activity
 		timer.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				nextDay();
+				runOnUiThread(() -> nextDay());
+
 			}
 		}, 0,5000);
 	}
